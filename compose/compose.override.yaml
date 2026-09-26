@@ -1,0 +1,16 @@
+services:
+  palworld-server:
+    # Eftersom "command" är en lista skriver override-filen över hela listan.
+    # Därför måste vi ta med alla original-flaggor plus din nya.
+    command:
+      - -port=8211
+      - -useperfthreads
+      - -NoAsyncLoadingThread
+      - -UseMultithreadForDS
+      - -publiclobby
+      
+    # När det gäller "volumes" matchar Docker på sökvägen INUTI containern.
+    # Detta ersätter alltså originalets "./Saved" med din NFS-share, 
+    # men låter "./helper.sh" från originalfilen vara kvar helt orörd!
+    volumes:
+      - /data/share/palworld/Saved:/pal/Package/Pal/Saved
