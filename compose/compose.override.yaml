@@ -14,3 +14,4 @@ services:
     # men låter "./helper.sh" från originalfilen vara kvar helt orörd!
     volumes:
       - /data/share/palworld/Saved:/pal/Package/Pal/Saved
+      - /data/share/palworld/helper.sh:/pal/helper.sh:ro
